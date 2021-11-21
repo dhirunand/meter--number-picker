@@ -1,4 +1,4 @@
-# meter--number-picker
+# meter: number picker
 
 How to
 To get a Git project into your build:
