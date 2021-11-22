@@ -20,7 +20,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.dhirunand:meter--number-picker:Tag'
+	        implementation 'com.github.dhirunand:meter--number-picker:v1.0.1'
 	}
 Step 3. Use it in Activity/Fragment
 
