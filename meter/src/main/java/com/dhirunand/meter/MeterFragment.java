@@ -27,6 +27,8 @@ public class MeterFragment extends Fragment {
 
     int current_pos;
 
+    private OnItemSelectedListener onItemSelectedListener;
+
     public MeterFragment() {
         // Required empty public constructor
     }
@@ -111,7 +113,7 @@ public class MeterFragment extends Fragment {
         });
 
         setGradientOnTextView(binding.textView);
-        setGradientOnTextView(binding.textView2);
+        setGradientOnTextView(binding.kgTv);
 
     }
 
@@ -134,4 +136,20 @@ public class MeterFragment extends Fragment {
         binding.recyclerView.scrollToPosition(current_pos);
     }
 
+    public void customizeMeter(String text) {
+        binding.kgTv.setText(text);
+    }
+
+    public String getSelectedNumber() {
+        return binding.textView.getText().toString();
+//        return 67 + "";
+    }
+
+    public void setOnItemSelectedListener(OnItemSelectedListener onItemSelectedListener) {
+        this.onItemSelectedListener = onItemSelectedListener;
+    }
+
+    public interface OnItemSelectedListener {
+        void onItemSelected(MeterFragment meterFragment, int position, String name);
+    }
 }
