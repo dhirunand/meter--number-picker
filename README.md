@@ -22,3 +22,15 @@ Step 2. Add the dependency
 	dependencies {
 	        implementation 'com.github.dhirunand:meter--number-picker:Tag'
 	}
+Step 3. Use it in Activity/Fragment
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.dhirunand.meter.MeterFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
