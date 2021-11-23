@@ -1,5 +1,7 @@
 # meter: number picker
 
+![Alt Text](https://github.com/dhirunand/meter--number-picker/blob/master/presentation_assets/meter.gif)
+
 How to
 To get a Git project into your build:
 
