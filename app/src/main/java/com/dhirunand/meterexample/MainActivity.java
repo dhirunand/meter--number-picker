@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity { //implements MeterFragment
         FragmentContainerView fcv = (FragmentContainerView) findViewById(R.id.fragmentContainerView);
         MeterFragment meterFragment = (MeterFragment) fcv.getFragment();
 
+//        meterFragment.customizeMeter("Dhiru");
+
         button = findViewById(R.id.button);
 
         button.setOnClickListener(view -> {

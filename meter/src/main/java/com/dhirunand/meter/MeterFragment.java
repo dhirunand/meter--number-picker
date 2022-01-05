@@ -147,9 +147,14 @@ public class MeterFragment extends Fragment {
 
 
     public int getItemSelected() {
-        Log.v("getSelected", current_pos+"");
+//        Log.v("getSelected", current_pos+"");
         return current_pos;
     }
+
+    public void customizeMeter(String unit_text) {
+        binding.kgTv.setText(unit_text);
+    }
+
 
 //    public void setOnItemSelectedListener(OnItemSelectedListener onItemSelectedListener) {
 //        this.onItemSelectedListener = onItemSelectedListener;
