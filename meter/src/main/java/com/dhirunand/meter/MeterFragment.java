@@ -1,5 +1,6 @@
 package com.dhirunand.meter;
 
+import android.content.Context;
 import android.graphics.LinearGradient;
 import android.graphics.Shader;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dhirunand.meter.databinding.FragmentMeterBinding;
 
@@ -25,9 +27,9 @@ public class MeterFragment extends Fragment {
     FragmentMeterBinding binding;
     int minWeight = 0;
 
-    int current_pos;
+     int current_pos;
 
-    private OnItemSelectedListener onItemSelectedListener;
+//    private OnItemSelectedListener onItemSelectedListener;
 
     public MeterFragment() {
         // Required empty public constructor
@@ -60,7 +62,7 @@ public class MeterFragment extends Fragment {
                 //binding.recyclerView.scrollToPosition(30);
 
                 LinearLayoutManager layoutManager = ((LinearLayoutManager) binding.recyclerView.getLayoutManager());
-                layoutManager.scrollToPositionWithOffset(49, 0);
+                layoutManager.scrollToPositionWithOffset(69, 0);
                 int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
                 int lastVisibleItemPosition = layoutManager.findLastVisibleItemPosition();
 
@@ -90,11 +92,12 @@ public class MeterFragment extends Fragment {
                 int centerPosition = (firstVisibleItemPosition + lastVisibleItemPosition) / 2;
                 binding.textView.setText((centerPosition - minWeight + 1) + "");
 
-                current_pos = centerPosition;
 
-//                if (newState == RecyclerView.SCROLL_STATE_IDLE)
-//                    binding.recyclerView.smoothScrollToPosition(firstVisibleItemPosition);
-//                Log.v(MainActivity.class.getSimpleName(), "center==" + centerPosition);
+                current_pos = centerPosition- minWeight + 1;
+                Log.v("DhiruPost", current_pos+"");
+
+
+
 
 
             }
@@ -109,11 +112,13 @@ public class MeterFragment extends Fragment {
                 int centerPosition = (firstVisibleItemPosition + lastVisibleItemPosition) / 2;
                 binding.textView.setText(String.valueOf(centerPosition - minWeight + 1));
 
+
             }
         });
 
-        setGradientOnTextView(binding.textView);
+        //setGradientOnTextView(binding.textView);
         setGradientOnTextView(binding.kgTv);
+        binding.textView.setTextColor(ContextCompat.getColor(requireContext(), R.color.end_color));
 
     }
 
@@ -136,20 +141,25 @@ public class MeterFragment extends Fragment {
         binding.recyclerView.scrollToPosition(current_pos);
     }
 
-    public void customizeMeter(String text) {
-        binding.kgTv.setText(text);
+//    public void customizeMeter(String text) {
+//        binding.kgTv.setText(text);
+//    }
+
+
+    public int getItemSelected() {
+        Log.v("getSelected", current_pos+"");
+        return current_pos;
     }
 
-    public String getSelectedNumber() {
-        return binding.textView.getText().toString();
-//        return 67 + "";
-    }
+//    public void setOnItemSelectedListener(OnItemSelectedListener onItemSelectedListener) {
+//        this.onItemSelectedListener = onItemSelectedListener;
+//
+//        Log.v("Dhiru", binding.textView.getText().toString());
+//    }
 
-    public void setOnItemSelectedListener(OnItemSelectedListener onItemSelectedListener) {
-        this.onItemSelectedListener = onItemSelectedListener;
-    }
 
-    public interface OnItemSelectedListener {
-        void onItemSelected(MeterFragment meterFragment, int position, String name);
-    }
+//    public interface OnItemSelectedListener {
+//        int getItemSelected();
+//    }
+
 }
